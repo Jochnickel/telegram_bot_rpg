@@ -28,3 +28,9 @@ Optional Features:
 * Rooms must have an exit
 * Players can be Moderator
 * Entities can be exported (Json or similar)
+
+* Has to use Libraries
+* Needs good Exception handling
+* Needs Database
+* Database needs to write files
+* no Root necessary

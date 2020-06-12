@@ -12,6 +12,7 @@ Main Language: Python
 
 Core Features:
 * Provide a Zork-Like MORPG-Environment
+* Admin Controls: Debug the server entirely through telegram
 * Players have a location
 * Players can "read" the room
 * Rooms can link to collectable and non-collectable items
@@ -25,3 +26,4 @@ Optional Features:
 * Rooms may or may not have Walls and Ceilings, but have at least 1cm² floor
 * Rooms within Rooms are possible. They might not be visible.
 * Rooms must have an exit
+* Players can be Moderator

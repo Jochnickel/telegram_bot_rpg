@@ -36,3 +36,10 @@ Prediction:
 * Needs Database
 * Database needs to write files, telebot_db and game_db. telebot_db contains User info (Admin or kicked)
 * no Root necessary
+
+
+Roadmap:
+* Bot Setup commandline, save Admin to adminID.txt
+* Hello World Bot, Create Telegram User Database.
+* Error Logging over Telegram
+* Hello JJ Bot, Using the database

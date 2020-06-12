@@ -29,6 +29,7 @@ Optional Features:
 * Players can be Moderator
 * Entities can be exported (Json or similar)
 
+Prediction:
 * Has to use Libraries
 * Needs good Exception handling
 * Needs Database

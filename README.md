@@ -18,6 +18,7 @@ Core Features:
 * Players can collect items
 * Rooms, Items, Players, Spells are (unique) Entities
 * Items can provide Functions e.g. Magnifier can inspect Room different
+
 Optional Features:
 * Limitations to Inventory
 * Rooms on a 2D-Grid, Coordinates (Players can move within rooms)

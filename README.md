@@ -13,6 +13,7 @@ Main Language: Python
 Core Features:
 * Provide a Zork-Like MORPG-Environment
 * Admin Controls: Debug the server entirely through telegram
+* Admin Controls: Debug levels per person: Errors, Warnings, Info
 * Players have a location
 * Players can "read" the room
 * Rooms can link to collectable and non-collectable items

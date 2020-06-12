@@ -39,7 +39,5 @@ Prediction:
 
 
 Roadmap:
-* Bot Setup commandline, save Admin to adminID.txt
-* Hello World Bot, Create Telegram User Database.
-* Error Logging over Telegram
-* Hello JJ Bot, Using the database
+* Try Telegram PIP Modules
+* Hook it up with Errors

@@ -27,3 +27,4 @@ Optional Features:
 * Rooms within Rooms are possible. They might not be visible.
 * Rooms must have an exit
 * Players can be Moderator
+* Entities can be exported (Json or similar)

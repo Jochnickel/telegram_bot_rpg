@@ -22,3 +22,5 @@ Optional Features:
 * Limitations to Inventory
 * Rooms on a 2D-Grid, Coordinates (Players can move within rooms)
 * Rooms may or may not have Walls and Ceilings, but have at least 1cm² floor
+* Rooms within Rooms are possible. They might not be visible.
+* Rooms must have an exit

@@ -34,5 +34,5 @@ Prediction:
 * Has to use Libraries
 * Needs good Exception handling
 * Needs Database
-* Database needs to write files
+* Database needs to write files, telebot_db and game_db
 * no Root necessary

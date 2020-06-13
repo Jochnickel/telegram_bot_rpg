@@ -14,14 +14,30 @@ Core Features:
 * Provide a Zork-Like MORPG-Environment
 * Admin Controls: Debug the server entirely through telegram
 * Admin Controls: Debug levels per person: Errors, Warnings, Info
-* Players have a location
-* Players can "read" the room
+* Rooms
+* Items
+* Players
+* Spells/Actions
+* Default Spells: Search Room
+* Default Spells: Walk
+* Default Spells: Talk
+* Players have a location in active rooms
+* Players can "search" the room
+* Players can find every item within 1m
 * Rooms can link to collectable and non-collectable items
 * Players can collect items
 * Rooms, Items, Players, Spells are (unique) Entities
+* There may exist multiple instances of items (mupltiple players may carry the same item)
+* Entities have a name and a description
 * Items can provide Functions e.g. Magnifier can inspect Room different
+* Spells can remove Items
+* Spells can create Items
 
 Optional Features:
+* Items have a vision range
+* Players can see each other and use each others items
+* Entities can be multiple types (Items and Rooms)
+* Items can be hidden if the player is too far away.
 * Limitations to Inventory
 * Rooms on a 2D-Grid, Coordinates (Players can move within rooms)
 * Rooms may or may not have Walls and Ceilings, but have at least 1cm² floor

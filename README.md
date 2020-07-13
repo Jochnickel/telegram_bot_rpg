@@ -14,6 +14,8 @@ Core Features:
 * Provide a Zork-Like MORPG-Environment
 * Admin Controls: Debug the server entirely through telegram
 * Admin Controls: Debug levels per person: Errors, Warnings, Info
+* Account Management: Delete Own Account
+* Account Management: Temporary Bans
 * Rooms
 * Items
 * Players

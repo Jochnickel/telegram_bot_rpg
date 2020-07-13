@@ -40,6 +40,7 @@ Core Features:
 * Spells can create Items
 
 Optional Features:
+* Soundtrack files each same length (5min)
 * Items have a vision range
 * Players can see each other and use each others items
 * Entities can be multiple types (Items and Rooms)

@@ -61,7 +61,7 @@ Prediction:
 * Database needs to write files, telebot_db and game_db. telebot_db contains User info (Admin or kicked)
 * no Root necessary
 
-
+ 
 Roadmap:
 * Try Telegram PIP Modules
 * Hook it up with Errors

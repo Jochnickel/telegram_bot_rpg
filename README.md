@@ -35,6 +35,7 @@ Core Features:
 * There may exist multiple instances of items (mupltiple players may carry the same item)
 * Entities have a name and a description
 * Items can provide Functions e.g. Magnifier can inspect Room different.
+* Players can cast spells if they are in their inventory (item) or if they are in them (room)
 * There can be a major spell for an item
 * Spells can remove Items
 * Spells can create Items

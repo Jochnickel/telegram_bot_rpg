@@ -19,7 +19,7 @@ Core Features:
 * Players
 * Spells/Actions
 * Interface: Commands start with a dash "/"
-* Interface: Commands may get piped
+* Interface: Commands may get piped (Using dash)
 * Default Spells: Search Room
 * Default Spells: Walk
 * Default Spells: Talk

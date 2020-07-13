@@ -18,6 +18,8 @@ Core Features:
 * Items
 * Players
 * Spells/Actions
+* Interface: Commands start with a dash "/"
+* Interface: Commands may get piped
 * Default Spells: Search Room
 * Default Spells: Walk
 * Default Spells: Talk
@@ -25,11 +27,13 @@ Core Features:
 * Players can "search" the room
 * Players can find every item within 1m
 * Rooms can link to collectable and non-collectable items
+* Items may be used without being collected
 * Players can collect items
 * Rooms, Items, Players, Spells are (unique) Entities
 * There may exist multiple instances of items (mupltiple players may carry the same item)
 * Entities have a name and a description
-* Items can provide Functions e.g. Magnifier can inspect Room different
+* Items can provide Functions e.g. Magnifier can inspect Room different.
+* There can be a major spell for an item
 * Spells can remove Items
 * Spells can create Items
 

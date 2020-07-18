@@ -1,7 +1,7 @@
 import unittest
 
 from Database import Database
-
+ 
 
 class asd(unittest.TestCase):
     def test_connection(self):

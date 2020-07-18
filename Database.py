@@ -40,13 +40,12 @@ class Database:
 	def appendLinkedListUnsafe(self, tableName: str, colNames: str, values: str, currentList: int):
 		lastItem = self.getLastLinkedListItemUnsafe(tableName, currentList)
 		newList = self.insertLinkedListUnsafe(tableName, colNames, values)
-		self.updateWhereUnsafe(tableName, "next_ll_id=%s" %
-							   newList, "ll_id=%s" % lastItem)
+		self.updateWhereUnsafe(tableName, "'next_ll_id'=%s" %
+							   newList, "'ll_id'=%s" % lastItem)
 
 	def insertLinkedListUnsafe(self, tableName, colNames, values) -> int:
 		cursor = connection.cursor()
 		cursor.fetchall()
-		print(colNames)
 		cursor.execute("INSERT INTO %s (%s) VALUES (%s)" %
 					   (tableName, colNames, values))
 		connection.commit()
@@ -60,14 +59,11 @@ class Database:
 		connection.commit()
 		return cursor.lastrowid
 
-	def insertLessUnsafe(self, tableName, colNames, values) -> int:
+	def insertLessUnsafe(self, tableName, colNames, values: list) -> int:
 		cursor = connection.cursor()
 		cursor.fetchall()
-		vls = []
-		for a in values:
-			vls.append('?')
-		valuString = ("%s"%tuple(vls))
-		cursor.execute("INSERT INTO %s (%s) VALUES %s"%(tableName, colNames, valuString), values)
+		preparedString = "INSERT INTO %s (%s) VALUES (%s)"%(tableName, colNames, ",".join(['?'] * len(values)))
+		cursor.execute(preparedString, values)
 		connection.commit()
 		return cursor.lastrowid
 
@@ -77,24 +73,24 @@ class Database:
 
 	def getLastLinkedListItemUnsafe(self, tableName: str, currentItem: int):
 		iteratorID = currentItem
-		iteratorNextID = self.selectNextLinkedListUnsafe(
+		iteratorNextID = self.selectNextLinkedListLessUnsafe(
 			tableName, currentItem)
 
 		while(iteratorNextID):
 			iteratorID = iteratorNextID
-			iteratorNextID = self.selectNextLinkedListUnsafe(
+			iteratorNextID = self.selectNextLinkedListLessUnsafe(
 				tableName, iteratorID)
 
 		return iteratorID
 
 	def hasNextLinkedListUnsafe(self, tableName: str, currentItem: int) -> bool:
-		return bool(self.selectWhereLessUnsafe("next_ll_id", tableName, "ll_id", currentItem)[0])
+		return bool(self.selectWhereLessUnsafe("'next_ll_id'", tableName, "'ll_id'", currentItem)[0])
 
 	# throws ValueError if currentItem not found
-	def selectNextLinkedListUnsafe(self, tableName: str, currentItem: int) -> int:
-		item = self.selectWhereLessUnsafe(
-			"ll_id, next_ll_id", tableName, "ll_id", currentItem)
-		if (None == item):
+	def selectNextLinkedListLessUnsafe(self, tableName: str, currentItem: int) -> int:
+		item = self.selectWhereUnsafe(
+			"'ll_id', 'next_ll_id'", tableName, "'ll_id'=%s"%currentItem)
+		if (None == item or [] == item):
 			raise ValueError("Initial item not found")
 		return item[1]
 
@@ -107,6 +103,8 @@ class Database:
 	def selectWhereUnsafe(self, cols: str, tableName: str, where_condition: str) -> list:
 		cursor = connection.cursor()
 		cursor.fetchall()
+		print("JojOJO","SELECT %s FROM %s WHERE %s" %
+					   (cols, tableName, where_condition))
 		cursor.execute("SELECT %s FROM %s WHERE %s" %
 					   (cols, tableName, where_condition))
 		return cursor.fetchall()

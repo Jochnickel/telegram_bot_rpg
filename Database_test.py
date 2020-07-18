@@ -20,7 +20,6 @@ class asd(unittest.TestCase):
 		self.assertEqual(tab1, [])
 
 		ins1 = database.insertLessUnsafe("tab","col1",["somevalue"])
-		# ins1 = idatabase.insertUnsafe("tab", "col1", "'somevalue'")
 		self.assertIsNotNone(ins1)
 		self.assertIsInstance(ins1, int)
 
@@ -34,7 +33,7 @@ class asd(unittest.TestCase):
 		self.assertEqual(sel, [('somevalue',)])
 
 		
-		ins2 = database.insertUnsafe("tab", "col1", "'othervalue'")
+		ins2 = database.insertLessUnsafe("tab", "col1", ['othervalue'])
 		self.assertIsNotNone(ins2)
 		self.assertIsInstance(ins2, int)
 
@@ -69,5 +68,5 @@ class asd(unittest.TestCase):
 		self.assertIsNotNone(ins1)
 		self.assertIsInstance(ins1, int)
 
-		database.appendLinkedListUnsafe("tab", "col1", "'Janke'", ins1)
+		database.appendLinkedListUnsafe("'tab'", "'col1'", "'Janke'", ins1)
 

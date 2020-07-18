@@ -6,7 +6,7 @@ import asyncio
  
 
 class Game:
-	def __init__(self, db, telebot: Telebot):
-		entityManager = EntityManager(db)
+	def __init__(self, telebot: Telebot):
+		entityManager = EntityManager
 
  

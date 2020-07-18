@@ -10,9 +10,7 @@ logging.info('Starting main.py')
 
 try:
 	telegram_db = Database("telebot.py")
-	telebot = Telebot(telegram_db)
-	game_db = Database("game.db")
-	game = Game(game_db, telebot)
+	game = Game(telebot)
 	logging.info("Done main.py")
 except Exception as e:
 	logging.exception("")

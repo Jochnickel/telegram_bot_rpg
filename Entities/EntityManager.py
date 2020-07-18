@@ -8,7 +8,7 @@ gdb = None
 class EntityManager:
 	def __init__(self, database):
 		global gdb
-		gdb = GameDatabase(database)
+		gdb = GameDatabase("game.db")
 
 	def createPlayer(self, room: Entity):
 		pass

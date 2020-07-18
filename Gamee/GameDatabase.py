@@ -13,11 +13,15 @@ class GameDatabase:
 		database = db
 		connection = database.getConnection()
 		cursor = connection.cursor()
+
 		self.initStructure()
 
 	def initStructure(self):
-		return database.createTableIfNotExistsUnsafe("Entity","entity_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, description TEXT, linked_entities INTEGER")
-
+		database.createTableIfNotExistsUnsafe("Entity","entity_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, description TEXT, linked_entities INTEGER")
+		database.createLinkedListIfNotExistsUnsafe("EntityLists","entity_id INTEGER")
+		database.createLinkedListIfNotExistsUnsafe("AllEntities","entity_id INTEGER")
+		
+	
 	def getEntity(self, entity_id):
 		return database.selectWhereLessUnsafe("*","Entity","entity_id",entity_id)
 

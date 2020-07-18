@@ -1,6 +1,5 @@
 import logging
 from Telebot import Telebot
-from Database import Database
 from Game import Game
 
 
@@ -9,7 +8,7 @@ logging.basicConfig(level=logging.DEBUG, filename='error.log',
 logging.info('Starting main.py')
 
 try:
-	telegram_db = Database("telebot.py")
+	telebot = Telebot()
 	game = Game(telebot)
 	logging.info("Done main.py")
 except Exception as e:

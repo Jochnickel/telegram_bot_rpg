@@ -1,4 +1,3 @@
-from Database import Database
 from Telebot import Telebot
 from Entities.EntityManager import EntityManager
 import asyncio

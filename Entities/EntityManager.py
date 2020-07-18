@@ -14,4 +14,5 @@ class EntityManager:
 		pass
 
 	def createEntity(self, name, description):
+		global gdb
 		gdb.insertEntity("Training Room", "An empty room")

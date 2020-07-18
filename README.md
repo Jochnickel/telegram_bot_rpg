@@ -65,3 +65,6 @@ Prediction:
 Roadmap:
 * Try Telegram PIP Modules
 * Hook it up with Errors
+
+
+[![Run on Repl.it](https://repl.it/badge/github/Jochnickel/telegram_bot_rpg)](https://repl.it/github/Jochnickel/telegram_bot_rpg)

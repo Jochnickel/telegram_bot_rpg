@@ -36,7 +36,7 @@ class Database:
 
 	# insert
 
-	#throws ValueError if currentList not found
+	# throws ValueError if currentList not found
 	def appendLinkedListUnsafe(self, tableName: str, colNames: str, values: str, currentList: int):
 		lastItem = self.getLastLinkedListItemUnsafe(tableName, currentList)
 		newList = self.insertLinkedListUnsafe(tableName, colNames, values)
@@ -47,10 +47,10 @@ class Database:
 		cursor = connection.cursor()
 		cursor.fetchall()
 		print(colNames)
-		cursor.execute("INSERT INTO %s (%s) VALUES (%s)" %(tableName, colNames, values))
+		cursor.execute("INSERT INTO %s (%s) VALUES (%s)" %
+					   (tableName, colNames, values))
 		connection.commit()
 		return cursor.lastrowid
-
 
 	def insertUnsafe(self, tableName, colNames, values) -> int:
 		cursor = connection.cursor()
@@ -60,13 +60,25 @@ class Database:
 		connection.commit()
 		return cursor.lastrowid
 
+	def insertLessUnsafe(self, tableName, colNames, values) -> int:
+		cursor = connection.cursor()
+		cursor.fetchall()
+		vls = []
+		for a in values:
+			vls.append('?')
+		valuString = ("%s"%tuple(vls))
+		cursor.execute("INSERT INTO %s (%s) VALUES %s"%(tableName, colNames, valuString), values)
+		connection.commit()
+		return cursor.lastrowid
 
 	# selects
 
 	# throws ValueError if currentitem not found
+
 	def getLastLinkedListItemUnsafe(self, tableName: str, currentItem: int):
 		iteratorID = currentItem
-		iteratorNextID = self.selectNextLinkedListUnsafe(tableName, currentItem)
+		iteratorNextID = self.selectNextLinkedListUnsafe(
+			tableName, currentItem)
 
 		while(iteratorNextID):
 			iteratorID = iteratorNextID

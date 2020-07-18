@@ -1,17 +1,17 @@
 from Entity import Entity
+from GameDatabase import GameDatabase
 
-db = None
+
+gdb = None
+
 
 class EntityManager:
 	def __init__(self, database):
-		global db
-		db = database
-
-		db.createLinkedListIfNotExistsUnsafe("AllEntities","entity_id INTEGER")
-		db.createTableIfNotExistsUnsafe("Entity","name TEXT, description TEXT")
+		global gdb
+		gdb = GameDatabase(database)
 
 	def createPlayer(self, room: Entity):
-		db.insertUnsafe
+		pass
 
 	def createEntity(self, name, description):
-		db.insertUnsafe("Entity","name, description", "")
+		gdb.insertEntity("Training Room", "An empty room")

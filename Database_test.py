@@ -19,7 +19,7 @@ class asd(unittest.TestCase):
 		tab1 = database.selectUnsafe("*", "tab")
 		self.assertEqual(tab1, [])
 
-		ins1 = database.insert("tab",["col1"],["somevalue"])
+		ins1 = database.insertLessUnsafe("tab","col1",["somevalue"])
 		# ins1 = idatabase.insertUnsafe("tab", "col1", "'somevalue'")
 		self.assertIsNotNone(ins1)
 		self.assertIsInstance(ins1, int)

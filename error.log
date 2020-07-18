@@ -1,2 +1,40 @@
-root - WARNING - This will get logged to a file
-root - ERROR - __init__() takes 1 positional argument but 2 were given
+2020-07-18 11:45:19,660: INFO: root: Starting main.py
+2020-07-18 11:45:19,677: ERROR: root: 
+Traceback (most recent call last):
+  File "/mnt/d/Code Projects/telegram_bot_rpg/main.py", line 14, in <module>
+    game = Game(game_db, telebot)
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Game.py", line 9, in __init__
+    database.executeSqlQuery("CREATE TABLE IF NOT EXISTS Entity(entity_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, description TEXT, linked_entities INTEGER );")
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Database.py", line 12, in executeSqlQuery
+    cursor.commit()
+AttributeError: 'sqlite3.Cursor' object has no attribute 'commit'
+2020-07-18 11:45:45,711: INFO: root: Starting main.py
+2020-07-18 11:45:45,733: INFO: root: Done main.py
+2020-07-18 11:45:51,361: INFO: root: Starting main.py
+2020-07-18 11:45:51,383: INFO: root: Done main.py
+2020-07-18 11:45:58,625: INFO: root: Starting main.py
+2020-07-18 11:45:58,644: INFO: root: Done main.py
+2020-07-18 11:45:59,429: INFO: root: Starting main.py
+2020-07-18 11:45:59,448: INFO: root: Done main.py
+2020-07-18 11:46:00,780: INFO: root: Starting main.py
+2020-07-18 11:46:00,799: INFO: root: Done main.py
+2020-07-18 11:47:00,453: INFO: root: Starting main.py
+2020-07-18 11:47:00,764: INFO: root: Done main.py
+2020-07-18 11:47:04,791: INFO: root: Starting main.py
+2020-07-18 11:47:05,109: INFO: root: Done main.py
+2020-07-18 11:47:12,379: INFO: root: Starting main.py
+2020-07-18 11:47:12,669: INFO: root: Done main.py
+2020-07-18 11:47:13,541: INFO: root: Starting main.py
+2020-07-18 11:47:13,776: INFO: root: Done main.py
+2020-07-18 11:51:19,430: INFO: root: Starting main.py
+2020-07-18 11:51:19,449: INFO: root: Done main.py
+2020-07-18 11:51:20,150: INFO: root: Starting main.py
+2020-07-18 11:51:20,166: INFO: root: Done main.py
+2020-07-18 11:51:24,897: INFO: root: Starting main.py
+2020-07-18 11:51:24,915: INFO: root: Done main.py
+2020-07-18 11:51:40,694: INFO: root: Starting main.py
+2020-07-18 11:51:40,860: INFO: root: Done main.py
+2020-07-18 11:51:45,314: INFO: root: Starting main.py
+2020-07-18 11:51:45,486: INFO: root: Done main.py
+2020-07-18 11:52:00,943: INFO: root: Starting main.py
+2020-07-18 11:52:01,305: INFO: root: Done main.py

@@ -38,3 +38,99 @@ AttributeError: 'sqlite3.Cursor' object has no attribute 'commit'
 2020-07-18 11:51:45,486: INFO: root: Done main.py
 2020-07-18 11:52:00,943: INFO: root: Starting main.py
 2020-07-18 11:52:01,305: INFO: root: Done main.py
+2020-07-18 12:30:42,781: INFO: root: Starting main.py
+2020-07-18 12:30:42,797: INFO: root: Done main.py
+2020-07-18 12:32:15,816: INFO: root: Starting main.py
+2020-07-18 12:32:15,833: INFO: root: Done main.py
+2020-07-18 12:33:00,533: INFO: root: Starting main.py
+2020-07-18 12:33:00,548: ERROR: root: 
+Traceback (most recent call last):
+  File "/mnt/d/Code Projects/telegram_bot_rpg/main.py", line 14, in <module>
+    game = Game(game_db, telebot)
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Game.py", line 13, in __init__
+    database.createEntity("Training Room", "A room")
+TypeError: createEntity() missing 1 required positional argument: 'linkedEntity_ids'
+2020-07-18 12:33:01,739: INFO: root: Starting main.py
+2020-07-18 12:33:01,752: ERROR: root: 
+Traceback (most recent call last):
+  File "/mnt/d/Code Projects/telegram_bot_rpg/main.py", line 14, in <module>
+    game = Game(game_db, telebot)
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Game.py", line 13, in __init__
+    database.createEntity("Training Room", "A room")
+TypeError: createEntity() missing 1 required positional argument: 'linkedEntity_ids'
+2020-07-18 12:33:27,366: INFO: root: Starting main.py
+2020-07-18 12:33:27,385: ERROR: root: 
+Traceback (most recent call last):
+  File "/mnt/d/Code Projects/telegram_bot_rpg/main.py", line 14, in <module>
+    game = Game(game_db, telebot)
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Game.py", line 13, in __init__
+    database.createEntity("Training Room", "A room")
+TypeError: createEntity() missing 1 required positional argument: 'linkedEntity_ids'
+2020-07-18 12:33:33,462: INFO: root: Starting main.py
+2020-07-18 12:33:33,479: ERROR: root: 
+Traceback (most recent call last):
+  File "/mnt/d/Code Projects/telegram_bot_rpg/main.py", line 14, in <module>
+    game = Game(game_db, telebot)
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Game.py", line 13, in __init__
+    database.createEntity("Training Room", "A room")
+TypeError: createEntity() missing 1 required positional argument: 'linkedEntity_ids'
+2020-07-18 12:33:34,310: INFO: root: Starting main.py
+2020-07-18 12:33:34,325: ERROR: root: 
+Traceback (most recent call last):
+  File "/mnt/d/Code Projects/telegram_bot_rpg/main.py", line 14, in <module>
+    game = Game(game_db, telebot)
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Game.py", line 13, in __init__
+    database.createEntity("Training Room", "A room")
+TypeError: createEntity() missing 1 required positional argument: 'linkedEntity_ids'
+2020-07-18 12:33:34,954: INFO: root: Starting main.py
+2020-07-18 12:33:34,971: ERROR: root: 
+Traceback (most recent call last):
+  File "/mnt/d/Code Projects/telegram_bot_rpg/main.py", line 14, in <module>
+    game = Game(game_db, telebot)
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Game.py", line 13, in __init__
+    database.createEntity("Training Room", "A room")
+TypeError: createEntity() missing 1 required positional argument: 'linkedEntity_ids'
+2020-07-18 12:33:35,570: INFO: root: Starting main.py
+2020-07-18 12:33:35,582: ERROR: root: 
+Traceback (most recent call last):
+  File "/mnt/d/Code Projects/telegram_bot_rpg/main.py", line 14, in <module>
+    game = Game(game_db, telebot)
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Game.py", line 13, in __init__
+    database.createEntity("Training Room", "A room")
+TypeError: createEntity() missing 1 required positional argument: 'linkedEntity_ids'
+2020-07-18 12:33:55,428: INFO: root: Starting main.py
+2020-07-18 12:33:55,446: ERROR: root: 
+Traceback (most recent call last):
+  File "/mnt/d/Code Projects/telegram_bot_rpg/main.py", line 14, in <module>
+    game = Game(game_db, telebot)
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Game.py", line 13, in __init__
+    database.createEntity("Training Room", "A room", None)
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Gamee/GameDatabase.py", line 38, in createEntity
+    ent_list = self.createEntityList(linkedEntity_ids)
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Gamee/GameDatabase.py", line 48, in createEntityList
+    for ent_id in linkedEntity_ids:
+TypeError: 'NoneType' object is not iterable
+2020-07-18 12:34:59,081: INFO: root: Starting main.py
+2020-07-18 12:34:59,221: INFO: root: Done main.py
+2020-07-18 12:36:35,859: INFO: root: Starting main.py
+2020-07-18 12:36:36,060: INFO: root: Done main.py
+2020-07-18 12:36:51,072: INFO: root: Starting main.py
+2020-07-18 12:36:51,325: INFO: root: Done main.py
+2020-07-18 12:37:52,805: INFO: root: Starting main.py
+2020-07-18 12:37:53,043: ERROR: root: 
+Traceback (most recent call last):
+  File "/mnt/d/Code Projects/telegram_bot_rpg/main.py", line 14, in <module>
+    game = Game(game_db, telebot)
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Game.py", line 14, in __init__
+    print(database.getAllEntityLists())
+AttributeError: 'GameDatabase' object has no attribute 'getAllEntityLists'
+2020-07-18 12:38:07,158: INFO: root: Starting main.py
+2020-07-18 12:38:07,462: ERROR: root: 
+Traceback (most recent call last):
+  File "/mnt/d/Code Projects/telegram_bot_rpg/main.py", line 14, in <module>
+    game = Game(game_db, telebot)
+  File "/mnt/d/Code Projects/telegram_bot_rpg/Game.py", line 14, in __init__
+    print(database.getAllEntityLists())
+AttributeError: 'GameDatabase' object has no attribute 'getAllEntityLists'
+2020-07-18 12:38:20,921: INFO: root: Starting main.py
+2020-07-18 12:38:21,195: INFO: root: Done main.py

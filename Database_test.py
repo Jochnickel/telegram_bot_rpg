@@ -64,5 +64,5 @@ class asd(unittest.TestCase):
         self.assertIsNotNone(ins1)
         self.assertIsInstance(ins1, int)
 
-        app1 = database.appendLinkedListUnsafe("tab", "col1", "Janke", ins1)
+        database.appendLinkedListUnsafe("tab", "col1", "Janke", ins1)
 

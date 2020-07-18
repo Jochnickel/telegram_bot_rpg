@@ -43,6 +43,14 @@ class Database:
 		self.updateWhereUnsafe(tableName, "next_ll_id=%s" %
 							   newList, "ll_id=%s" % lastItem)
 
+	def insert(self, tableName: str, colNames, values) -> int:
+		cursor = connection.cursor()
+		cursor.fetchall()
+		cursor.execute("INSERT INTO ? (?) VALUES (?)" %
+					   (tableName, *colNames, *values))
+		connection.commit()
+		return cursor.lastrowid
+
 	def insertLinkedListUnsafe(self, tableName, colNames, values) -> int:
 		cursor = connection.cursor()
 		cursor.fetchall()
@@ -51,6 +59,7 @@ class Database:
 		connection.commit()
 		return cursor.lastrowid
 
+
 	def insertUnsafe(self, tableName, colNames, values) -> int:
 		cursor = connection.cursor()
 		cursor.fetchall()
@@ -58,6 +67,7 @@ class Database:
 					   (tableName, colNames, values))
 		connection.commit()
 		return cursor.lastrowid
+
 
 	# selects
 

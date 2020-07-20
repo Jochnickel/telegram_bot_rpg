@@ -1,17 +1,29 @@
 package de.jj22.telegram_bot_rpg.GameUtils;
 
+
+/**
+ * Player Entities contain Inventory, Spells, Rooms
+ * The Current room is room 0, they are prepended
+ * @author Joachim
+ *
+ */
 public class Player {
 
 	final private int player_id;
-	final private int entity_id;
-
-	public Player(int player_id, int entity_id) {
-		this.player_id = player_id;
-		this.entity_id = entity_id;
-	}
+	final private Entity entity;
 	
-	public Entity getEntity() {
-		return new Entity(entity_id);
+	
+
+	public Player(int player_id, Entity entity) {
+		this.player_id = player_id;
+		this.entity = entity;
 	}
 
+	public Entity getEntity() {
+		return entity;
+	}
+
+	public int getPlayerID() {
+		return player_id;
+	}
 }

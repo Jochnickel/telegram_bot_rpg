@@ -32,7 +32,7 @@ public class GameDatabase {
 				"CREATE TABLE IF NOT EXISTS Entity ( entity_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, description TEXT, linked_entities_list_id INTEGER )");
 		asd.execute(
 				"CREATE TABLE IF NOT EXISTS EntityLists ( ll_id INTEGER PRIMARY KEY AUTOINCREMENT, entity_id INTEGER, next_ll_id INTEGER )");
-		asd.execute("CREATE TABLE IF NOT EXISTS Player ( player_id INTEGER PRIMARY KEY, entity_id INTEGER )");
+		asd.execute("CREATE TABLE IF NOT EXISTS Player ( player_id INTEGER PRIMARY KEY, entity_id INTEGER, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP )");
 		asd.close();
 	}
 
@@ -167,6 +167,10 @@ public class GameDatabase {
 
 	public void updateEntityName(int entity_id, String name) throws SQLException {
 		preparedStatement("UPDATE Entity SET name=? WHERE entity_id=?", name, entity_id).execute();
+	}
+	
+	public void updatePlayerTimestamp(int player_id) throws SQLException {
+		preparedStatement("UPDATE Player SET timestamp=CURRENT_TIMESTAMP WHERE player_id=?", player_id).execute();
 	}
 	
 

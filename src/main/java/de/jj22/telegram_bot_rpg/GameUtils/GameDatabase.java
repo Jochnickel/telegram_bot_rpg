@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Iterator;
 
 public class GameDatabase {
 	final private Connection connection;
@@ -13,6 +14,10 @@ public class GameDatabase {
 	public GameDatabase(String filename) throws SQLException {
 		connection = DriverManager.getConnection("jdbc:sqlite:" + filename);
 		initDatabase();
+	}
+
+	public void deleteLinkedListItem(int ll_id) throws SQLException {
+		preparedStatement("DELETE FROM EntityLists WHERE ll_id=?", ll_id).execute();
 	}
 
 	public ResultSet getFirstEntity() throws SQLException {
@@ -75,6 +80,44 @@ public class GameDatabase {
 		return statement.executeQuery();
 	}
 
+	public Iterable<Integer> selectEntityList(int entity_list_id) {
+		return new Iterable<Integer>() {
+			@Override
+			public Iterator<Integer> iterator() {
+				try {
+					return new Iterator<Integer>() {
+						private ResultSet res = preparedStatement(
+								"SELECT entity_id, next_ll_id FROM EntityLists WHERE ll_id=?", entity_list_id)
+										.executeQuery();
+						private boolean hasNext = res.next();
+
+						@Override
+						public boolean hasNext() {
+							return hasNext;
+						}
+
+						@Override
+						public Integer next() {
+							try {
+								var out = res.getInt(2);
+								res = preparedStatement("SELECT entity_id, next_ll_id FROM EntityLists WHERE ll_id=?",
+										res.getInt(1)).executeQuery();
+								hasNext = res.next();
+								return out;
+							} catch (SQLException e) {
+								e.printStackTrace();
+								return null;
+							}
+						}
+					};
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		};
+	}
+
 	/**
 	 * 
 	 * @param entity_list_id
@@ -86,11 +129,11 @@ public class GameDatabase {
 		if (index < 0) {
 			throw new IndexOutOfBoundsException();
 		}
-		final var statement = preparedStatement("SELECT entity_id, next_ll_id FROM EntityLists WHERE ll_id=?",
+		final var statement = preparedStatement("SELECT ll_id, entity_id, next_ll_id FROM EntityLists WHERE ll_id=?",
 				entity_list_id);
 		final var res = statement.executeQuery();
 		if (index > 0 && res.next()) {
-			final var next_ll_id = res.getInt(2);
+			final var next_ll_id = res.getInt(3);
 			return selectEntityListItem(next_ll_id, index - 1);
 		} else {
 			return res;
@@ -104,8 +147,7 @@ public class GameDatabase {
 	 * @throws SQLException
 	 */
 	public ResultSet selectPlayer(int player_id) throws SQLException {
-		final var statement = preparedStatement("SELECT player_id, entity_id FROM Player WHERE player_id=?",
-				player_id);
+		final var statement = preparedStatement("SELECT player_id, entity_id FROM Player WHERE player_id=?", player_id);
 		return statement.executeQuery();
 	}
 
@@ -114,8 +156,18 @@ public class GameDatabase {
 		preparedStatement("INSERT INTO FirstEntity VALUES (?)", entity_id).execute();
 	}
 
+	public void updateEntityDescription(int entity_id, String description) throws SQLException {
+		preparedStatement("UPDATE Entity SET description=? WHERE entity_id=?", description, entity_id).execute();
+	}
+
+	public void updateEntityLinkedListID(int entity_id, int linked_list_id) throws SQLException {
+		preparedStatement("UPDATE Entity SET linked_entities_list_id=? WHERE entity_id=?", linked_list_id, entity_id)
+				.execute();
+	}
+
 	public void updateEntityName(int entity_id, String name) throws SQLException {
 		preparedStatement("UPDATE Entity SET name=? WHERE entity_id=?", name, entity_id).execute();
 	}
+	
 
 }

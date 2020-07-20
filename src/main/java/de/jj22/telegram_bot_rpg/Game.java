@@ -18,7 +18,7 @@ public class Game {
 			entityManager.getFirstEntity();
 		} catch (EntityNotFoundException e) {
 			final var table = entityManager.createEntity("Table", "An empty table", null);
-			entityManager.setFirstEntity("Training Room", "A room with a <table | Enter>", new Entity[] {table});
+			entityManager.setFirstEntity("Training Room", "A room with a < table | Enter >", new Entity[] {table});
 		}
 	}
 
@@ -57,6 +57,19 @@ public class Game {
 	public void changePlayerName(int player_id, String name) throws SQLException, PlayerNotFoundException, EntityNotFoundException {
 		entityManager.changeEntityName(getPlayer(player_id).getEntity(), name);
 	}
+
+	public void enterRoom(int player_id, Entity room) throws IllegalPlayerAction;
+
+	public void leaveRoom(int player_id) throws IllegalPlayerAction;
 	
+	public void enterWorld(int player_id, Entity[] room) throws IllegalPlayerAction;
+	
+	public void collectItem(int player_id, Entity item) throws IllegalPlayerAction;
+	
+	public void say(int player_id);
+
+	public void announce(Entity room);
+	
+	public void announce();
 	
 }

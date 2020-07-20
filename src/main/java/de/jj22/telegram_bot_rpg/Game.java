@@ -15,12 +15,10 @@ public class Game {
 	public Game() throws SQLException {
 		entityManager = new EntityManager();
 		try {
-			final var room = entityManager.getFirstEntity();
-			final var table = entityManager.createEntity("Table", "An empty table", null);
-//			entityManager.changeEntityDescription(room, "A room with a <table| ENTER>");
-//			entityManager.changeEntityLinkedListItems(room, new Entity[] {table});
+			entityManager.getFirstEntity();
 		} catch (EntityNotFoundException e) {
-			entityManager.setFirstEntity("Training Room", "A room with a table", null);
+			final var table = entityManager.createEntity("Table", "An empty table", null);
+			entityManager.setFirstEntity("Training Room", "A room with a <table | Enter>", new Entity[] {table});
 		}
 	}
 

@@ -1,4 +1,4 @@
-package de.jj22.telegram_bot_rpg.GameUtils;
+package de.jj22.telegram_bot_rpg.Game.Entities;
 
 public class PlayerNotFoundException extends Exception {
 

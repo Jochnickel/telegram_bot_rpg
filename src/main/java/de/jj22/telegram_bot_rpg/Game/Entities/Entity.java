@@ -1,16 +1,14 @@
-package de.jj22.telegram_bot_rpg.GameUtils;
+package de.jj22.telegram_bot_rpg.Game.Entities;
 
 public class Entity {
 	final private int entity_id;
 	final private String name;
 	final private String description;
-	final private Integer listID;
 
-	public Entity(int entity_id, String name, String description, Integer list_id) {
+	public Entity(int entity_id, String name, String description) {
 		this.entity_id = entity_id;
 		this.name = name;
 		this.description = description;
-		this.listID = list_id;
 	}
 
 	public int getEntityID() {
@@ -25,7 +23,4 @@ public class Entity {
 		return name;
 	}
 	
-	public Integer getLinkedListID(){
-		return listID;
-	}
 }

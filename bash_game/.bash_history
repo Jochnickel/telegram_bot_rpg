@@ -289,3 +289,5 @@ cd table
 ls
 d
 l
+ls
+l

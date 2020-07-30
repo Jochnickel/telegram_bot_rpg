@@ -260,3 +260,32 @@ nano pencil
 . pencil hihallo
 nano pencil
 d
+h
+d
+l
+. table
+cd table
+l
+git add .
+git commit -m asd
+git status
+cd ..
+cd ..
+git add .
+git status
+git commit -m 1
+git status
+cd ..
+git add .
+git commit -m 1
+git status
+git push
+ls
+cd bash_game/
+ks
+cd StartRoom
+ls
+cd table
+ls
+d
+l

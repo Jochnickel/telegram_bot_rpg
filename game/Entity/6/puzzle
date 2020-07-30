@@ -1,2 +1,0 @@
-#!/bin/sh
-cd .. && rm 'Rubicks Cube' && ln -s ../4 'Rubicks Cube' && cd 'Rubicks Cube'

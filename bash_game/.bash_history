@@ -291,3 +291,27 @@ d
 l
 ls
 l
+h
+d
+l
+cd table
+l
+l
+cd table
+cd table
+d
+cd table
+d
+d
+ls -d
+ls --help
+l
+d
+cd table
+ls
+d
+cd book
+l
+d
+l
+d

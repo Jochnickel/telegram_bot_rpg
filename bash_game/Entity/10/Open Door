@@ -1,0 +1,3 @@
+#!/bin/sh
+echo You won the game!
+exit

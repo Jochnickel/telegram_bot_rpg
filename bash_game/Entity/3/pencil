@@ -1,6 +1,7 @@
 #!/bin/sh
 if [ -z "$@" ]; then
-  echo An empty Book. > .description
+  echo More words please!
 else
   echo -e Someone wrote: $@ > .description
+  mv '.Collect Note' 'Collect Note' 2>&-
 fi

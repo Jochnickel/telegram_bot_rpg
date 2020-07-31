@@ -1,0 +1,6 @@
+#!/bin/bash
+echo You rip out the first page.
+mv .description ../9/
+ln -s ../9 ../0/9 2>&-
+echo An empty book > .description
+mv 'Collect Note' '.Collect Note'

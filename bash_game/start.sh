@@ -1,6 +1,6 @@
 #!/bin/bash
 export PATH=$PATH:$PWD/bin
-export HOME=$PWD
+export HOME=$PWD/StartRoom
 G="\033[0;32m"
 X="\033[0m"
 HELP="$G h$X for Help, $G d$X for description, $G l$X to list options, $G .$X <object> for action, $G cd$X <object> to go to object, $G cd ..$X to leave object, $G Ctrl+D$X to exit"

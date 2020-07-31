@@ -197,3 +197,44 @@ chmod +x Open\ Door
 ls
 nano Open\ Door 
 . Open\ Door 
+d
+cd door
+d
+cd 
+ln -s ../8 door
+nano ../10/Open\ Door 
+ls
+d
+cd door
+d
+rm 8
+cd ..
+ls
+nano door/Open\ Door 
+ls
+rm door
+ln -s ../8 door
+ls
+cd door
+d
+cd Missing\ Item
+d
+cd ..
+cd 
+rm ../0/*
+ls
+nano ../10/Open\ Door 
+d
+cd table
+d
+cd Rubicks\ Cube
+d
+. puzzle 
+d
+cd ..
+d
+cd ..
+d
+cd wardrobe
+d
+cd ..

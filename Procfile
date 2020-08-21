@@ -1,1 +1,1 @@
-javac Main.java && java Main
+java -jar jar.jar

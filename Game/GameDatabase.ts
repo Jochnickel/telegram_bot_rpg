@@ -5,4 +5,8 @@ export default class GameDatabase {
     constructor(fileName: string) {
         
     }
+
+    selectEntity(entity_id: number){
+        const res = this.sql.query("SELECT * FROM Entity WHERE entity_id = ?", entity_id);
+    }
 }

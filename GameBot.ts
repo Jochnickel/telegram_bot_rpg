@@ -1,3 +1,4 @@
+console.debug("GameBot.ts start");
 import Input from "./utils/Input";
 import Game from "./Game/Game";
 import sleep from "./utils/Sleep";
@@ -20,12 +21,16 @@ export default class GameBot {
 	}
 
 	async runConsole() {
+		console.debug("start runConsole()");
 		return new Promise((resolve, reject) => {
 			const USER_ID = "1";
 			const PLATFORM = "console";
 			this.game.getUserScreen(USER_ID, PLATFORM);
+			console.debug("resolved runConsole()");
 		});
 	}
 
 	
 }
+
+console.debug("GameBot.ts end");

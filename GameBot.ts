@@ -11,6 +11,6 @@ export default class GameBot {
   async runConsole(){
     const USER_ID = "1";
     const PLATFORM = "console";
-    game.getUserScreen(USER_ID,PLATFORM);
+    this.game.getUserScreen(USER_ID,PLATFORM);
   }
 }

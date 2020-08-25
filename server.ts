@@ -4,4 +4,6 @@ console.debug("start server.ts");
 
 const gamebot = new GameBot();
 
+gamebot.runConsole();
+
 console.debug("end server.ts")

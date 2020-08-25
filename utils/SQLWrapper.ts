@@ -1,12 +1,11 @@
-const sqlite3 = require("sqlite3").verbose();
 
-class SQLWrapper {
+export default class SQL {
 	private db;
 	private fileName: string;
 
 	constructor(fileName: string) {
 		this.fileName = fileName;
-		this.db = new sqlite3.Database(fileName);
+		this.db = require("sqlite3").verbose().Database(fileName);
 	}
 
 	async query(cmd: string) {

@@ -1,12 +1,16 @@
 import Input from "./Input";
+import Game from "./Game";
 
 export default class GameBot {
+  
+  private readonly game = new Game();
+
+  async runTelegram(){
+    
+  }
   async runConsole(){
-    
-    let name = await Input("What is your name?\n");
-    console.log("your name is ", name);
-    
-    name = await Input("What is your name again?\n");
-    console.log("your name is ", name, "again");
+    const USER_ID = "1";
+    const PLATFORM = "console";
+    game.getUserScreen(USER_ID,PLATFORM);
   }
 }

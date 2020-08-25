@@ -4,13 +4,14 @@ console.debug("start server.ts");
 
 const gamebot = new GameBot();
 
-gamebot.runConsole();
+// gamebot.runConsole();
 
 const sqlite3 = require("sqlite3").verbose();
 
 const db = new sqlite3.Database("test.db");
+//db.run("CREATE TABLE Test (a INTEGER, b TEXT)");
 const a = db.run("SELECT * FROM Test");
-console.log(a);
+console.log("Data:\n", a, "jo");
 
 
 console.debug("end server.ts");

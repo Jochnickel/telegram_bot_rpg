@@ -17,8 +17,11 @@ export default class GameDatabase {
 			await this.sql.query("CREATE TABLE IF NOT EXISTS LinkedEntities (entity_id INT, i INT, linked_entity_id INT);");
 
 			await this.sql.query("CREATE TABLE IF NOT EXISTS Player (player_id INT PRIMARY KEY, platform_id TEXT, platform TEXT, entity_id INT);");
-			await this.sql.query("CREATE TABLE IF NOT EXISTS Role (role_name TEXT PRIMARY KEY)");
-			await this.sql.query("CREATE TABLE IF NOT EXISTS PlayerRoles (id INT, role_name TEXT)");
+			await this.sql.query("CREATE TABLE IF NOT EXISTS Role (role_name TEXT PRIMARY KEY);");
+			// await this.sql.query("INSERT INTO Role VALUES ('admin');");
+			// await this.sql.query("INSERT INTO Role VALUES ('player');");
+			await this.sql.query("CREATE TABLE IF NOT EXISTS PlayerRoles (id INT, role_name TEXT);");
+			// await this.sql.query("INSERT INTO Player VALUES (1,'1','console',NULL);");
 			done();
 		});
 	}
@@ -41,7 +44,25 @@ export default class GameDatabase {
 	}
 
 	async selectPlayerRoles(platform_id: string, platform: string) {
-		return this.synchronized(() => this.sql.query("SELECT role_name FROM PlayerRoles NATURAL JOIN Player WHERE platform_id=?, platform=?", platform_id, platform));
+		return this.synchronized(async () => {
+			return (await this.sql.query("SELECT role_name FROM PlayerRoles NATURAL JOIN Player WHERE platform_id=?, platform=?", platform_id, platform))[0];
+		});
+	}
+
+	async insertPlayer(platform_id: string, platform: string, entity_id: number) {
+		return this.synchronized(async () => {
+			const res = await this.sql.query("INSERT INTO Player (platform_id, platform, entity_id) VALUES (?,?,?)", platform_id, platform, entity_id);
+			console.debug("GameDatabase.insertPlayer() ", res);
+			return res;
+		});
+	}
+
+	async updatePlayerEntityID(entity_id: number) {
+		return this.synchronized(async () => {
+			const res = await this.sql.query("UPDATE Player (entity_id) VALUES (?)", entity_id);
+			console.debug("GameDatabase.updatePlayerEntityID() ", res);
+			return res;
+		});
 	}
 
 	async insertNewEntity(name: string, description: string) {

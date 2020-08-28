@@ -1,6 +1,6 @@
 
-const sqlite3 = require("sqlite3").verbose();
-// import sqlite3 from "sqlite3";
+// const sqlite3 = require("sqlite3").verbose();
+import * as sqlite3 from "sqlite3";
 
 export default class SQL {
 	private db;

@@ -1,8 +1,12 @@
-import EntityManager from "./EntityManager";
+import EntityManager from "./EntitySystem/EntityManager";
 
 export default class Game {
 	private readonly em = new EntityManager();
-	getUserScreen(id: string, platform: string): string {
+
+	async getUserScreen(id: string, platform: string): Promise<string> {
+		console.debug("Game.getUserScreen() ", await this.em.getPlayerByID(id, platform));
 		return "Game.getUserScreen() not implemented";
 	}
+
+
 }

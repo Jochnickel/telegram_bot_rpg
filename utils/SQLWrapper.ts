@@ -16,12 +16,14 @@ export default class SQL {
 			try {
 				this.db.all(cmd, values, (err, rows) => {
 					if (err) {
+						console.error(err);
 						reject(err);
 					} else {
 						resolve(rows);
 					}
 				});
 			} catch (error) {
+				console.error(error);
 				reject(error);
 			}
 		})

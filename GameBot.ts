@@ -16,20 +16,20 @@ export default class GameBot {
 				const r = https.get("https://api.telegram.org/bot1107986005:AAEejkxU0KofALESwToms-aVckREPWmHpgw/sendMessage?text=typescript22&chat_id=452549370");
 				console.debug(r);
 			}
-			reject("not implemented");
 		});
 	}
 
 	async runConsole() {
-		console.debug("start runConsole()");
-		return new Promise((resolve, reject) => {
+		console.debug("GameBot.runConsole() start");
+		return new Promise(async (resolve, reject) => {
 			const USER_ID = "1";
 			const PLATFORM = "console";
-			this.game.getUserScreen(USER_ID, PLATFORM);
-			console.debug("resolved runConsole()");
+			while(true){
+				console.log(this.game.getUserScreen(USER_ID, PLATFORM));
+				await sleep(1);
+			}
 		});
 	}
-
 	
 }
 

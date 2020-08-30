@@ -1,6 +1,6 @@
 import PlayerNotFoundException from "./PlayerNotFoundException";
 import GameDatabase from "./GameDatabase";
-import sleep from "../../utils/Sleep";
+import sleep from "../../utils/sleep";
 
 export default class EntityManager {
 	private readonly gdb = new GameDatabase("game.db");

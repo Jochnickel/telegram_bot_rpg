@@ -1,20 +1,32 @@
 console.debug("GameBot.ts start");
 import Game from "./Game/Game";
-import sleep from "./utils/Sleep";
-import * as https from 'https';
+import sleep from "./utils/sleep";
+import TelegramPolling from "./Bot/Telegram";
 
 export default class GameBot {
 
 	private readonly game = new Game();
+	private telegram: Promise<unknown>;
+	private console: Promise<unknown>;
+
+
+	async getInfo(platform: string, platform_id: string): Promise<string> {
+		return new Promise((resolve, reject) => {
+			resolve("GameBot.getInfo() not implemented");
+		});
+	}
 
 	async runTelegram() {
-		return new Promise(async (resolve, reject) => {
-			while (true) {
-				await sleep(10);
-				const r = https.get("https://api.telegram.org/bot1107986005:AAEejkxU0KofALESwToms-aVckREPWmHpgw/sendMessage?text=typescript22&chat_id=452549370");
-				console.debug("GameBot.runTelegram()", r);
-			}
-		});
+		if (!(this.telegram instanceof Promise)) {
+			this.telegram = new Promise((resolve, reject) => {
+				const telegram = new TelegramPolling("1107986005:AAEejkxU0KofALESwToms-aVckREPWmHpgw");
+				while (true) {
+					telegram.answerAll(this);
+					sleep(10);
+				}
+			});
+		}
+		return this.telegram;
 	}
 
 	async runConsole() {

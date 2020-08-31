@@ -5,9 +5,9 @@ import TelegramPolling from "./Bot/Telegram";
 
 export default class GameBot {
 
-	private readonly game = new Game();
-	private telegram: Promise<unknown>;
-	private console: Promise<unknown>;
+	readonly #game = new Game();
+	#telegram: Promise<unknown>;
+	#console: Promise<unknown>;
 
 
 	async getInfo(platform: string, platform_id: string): Promise<string> {
@@ -17,8 +17,8 @@ export default class GameBot {
 	}
 
 	async runTelegram() {
-		if (!(this.telegram instanceof Promise)) {
-			this.telegram = new Promise((resolve, reject) => {
+		if (!(this.#telegram instanceof Promise)) {
+			this.#telegram = new Promise((resolve, reject) => {
 				const telegram = new TelegramPolling("1107986005:AAEejkxU0KofALESwToms-aVckREPWmHpgw");
 				while (true) {
 					telegram.answerAll(this);
@@ -26,7 +26,7 @@ export default class GameBot {
 				}
 			});
 		}
-		return this.telegram;
+		return this.#telegram;
 	}
 
 	async runConsole() {
@@ -35,7 +35,7 @@ export default class GameBot {
 			const USER_ID = "1";
 			const PLATFORM = "console";
 			while (true) {
-				const screen = await this.game.getUserScreen(USER_ID, PLATFORM);
+				const screen = await this.#game.getUserScreen(USER_ID, PLATFORM);
 				console.log(screen);
 				await sleep(1);
 			}

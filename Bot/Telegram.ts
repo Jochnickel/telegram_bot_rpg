@@ -1,4 +1,3 @@
-import Bot from "./Bot";
 import Game from "../Game/Game";
 import GameBot from "../GameBot";
 import * as https from 'https';

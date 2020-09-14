@@ -16,7 +16,8 @@ export default class EntityManager {
 			throw new PlayerNotFoundException();
 		}
 		console.debug("EntityManager.getPlayerByID()", player);
-		await sleep(100);
+		//TODO
+		await sleep(10);
 		throw new Error("not implemented");
 	}
 

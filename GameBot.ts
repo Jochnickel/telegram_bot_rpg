@@ -2,6 +2,7 @@ console.debug("GameBot.ts start");
 import Game from "./Game/Game";
 import sleep from "./utils/sleep";
 import TelegramPolling from "./Bot/Telegram";
+import input from "./utils/input";
 
 export default class GameBot {
 
@@ -38,6 +39,7 @@ export default class GameBot {
 				const screen = await this.#game.getUserScreen(USER_ID, PLATFORM);
 				console.log(screen);
 				await sleep(1);
+				await input("");
 			}
 		});
 	}
